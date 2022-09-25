@@ -1,0 +1,36 @@
+<Pomodoro>:
+	MDIcon:
+		icon: "timer"
+		font_size: "90sp"
+		pos_hint: {'center_x': 0.5, 'center_y': 0.75}
+
+	MDLabel:
+		text: root.timer_string
+		halign: "center"
+		font_size: "70sp"
+
+	MDRaisedButton:
+		text: root.button_string
+		size_hint_x: 0.4 
+		font_size: "25sp"
+		pos_hint: {'center_x': 0.5, 'center_y': 0.3}
+		on_release: root.initial()
+
+	MDRaisedButton:
+		text: "Reiniciar"
+		size_hint_x: 0.4 
+		font_size: "25sp"
+		pos_hint: {'center_x': 0.5, 'center_y': 0.2}
+		on_release: root.reinitialize()
+		opacity: root.reinitialize_opacity
+		disabled: root.reinitialize_disabled
+
+
+MDBoxLayout:
+	orientation: "vertical"
+
+	MDTopAppBar:
+		title: "Pomodoro"
+		right_action_items: [['theme-light-dark', lambda x: app.change_color()]]
+	
+	Pomodoro
